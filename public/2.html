@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+            
+    .logo {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+        @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Clock icon */
+    #clock {
+      animation: rotate 0.8s linear infinite;
+    }
+        /* CSS for mobile devices */
+        @media (max-width: 600px) {
+            /* Adjust font sizes and margins for better readability on small screens */
+            h1 {
+                font-size: 24px;
+            }
+
+            h3 {
+                font-size: 18px;
+            }
+
+            p {
+                font-size: 16px;
+                margin-bottom: 10px;
+            }
+
+            pre {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1><img id="clock" src="https://cdn.icon-icons.com/icons2/1993/PNG/512/clock_hour_minute_second_time_timer_watch_icon_123193.png" class="logo">IP fetcher</h1>
+
+    <h3>The links which we will be using</h3>
+    <a href="https://api.ipify.org/?format=json">The IP address in JSON</a>
+    <p>There are two choices, therefore choose which you will like</p>
+    <a href="https://ipapi.co">This site does not require login</a>
+    <p>Whereas</p>
+    <a href="https://app.ipfind.com/">Requires you to login</a>
+
+    <h1>Code</h1>
+    <pre>
+        fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+          var ipAddress = data.ip;
+          fetch('https://ipapi.co/' + ipAddress + '/json/')
+            .then(response => response.json())
+            .then(data => {
+              let city = data.city;
+              let country = data.country;
+              console.log("I know you are from " + country + " and you are currently in " + city);
+            });
+        })                 
+    </pre>
+    <a href="https://replit.com/@SamipRegmi/IgnorantAmusedScandisk-1?v=1">Try yourself</a>
+
+    <h2>Next method</h2>
+    <p>We will use a much more correct and precise API</p>
+    <pre>
+        fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+          var ipAddress = data.ip;
+          let auth = 'YOUR IPFIND DEVELOPER KEY';
+          fetch('https://api.ipfind.com/?ip=' + ipAddress + '&auth=' + auth)
+            .then(response => response.json())
+            .then(data => {
+              let city = data.city;
+              let country = data.country;
+              console.log("I know you are from " + country + " and you are currently in " + city);
+            });
+        })    
+    </pre>
+</body>
+</html>

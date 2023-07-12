@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            overflow-x: auto;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .comment {
+            color: green;
+        }
+
+        .logo {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Clock icon */
+        #clock {
+            animation: rotate 0.8s linear infinite;
+        }
+
+        @media screen and (max-width: 600px) {
+            pre {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1><img id="clock"
+            src="https://cdn.icon-icons.com/icons2/1993/PNG/512/clock_hour_minute_second_time_timer_watch_icon_123193.png"
+            class="logo">Linking c files</h1>
+    <h1>main.c</h1>
+    <pre><code>
+<code class="code">#include &lt;stdio.h&gt;</code>
+<code class="code">#include &lt;string.h&gt;</code>
+<code class="code">#include &lt;stdlib.h&gt;</code>
+<code class="code">#include "login.h"</code>
+<code class="code">void logic(char[], char[]);</code>
+<code class="code">int program();</code>
+<code class="code">void fail_login();</code>
+<code class="code">int main()</code>
+<code class="code">{</code>
+<code class="code">&nbsp;&nbsp;&nbsp;&nbsp;char name[100], pass[100];</code>
+<code class="code">&nbsp;&nbsp;&nbsp;&nbsp;printf("Create a user-name: ");</code>
+<code class="code">&nbsp;&nbsp;&nbsp;&nbsp;scanf("%s", name);</code>
+<code class="code">&nbsp;&nbsp;&nbsp;&nbsp;printf("create a password: ");</code>
+<code class="code">&nbsp;&nbsp;&nbsp;&nbsp;scanf("%s", pass);</code>
+<code class="code">&nbsp;&nbsp;&nbsp;&nbsp;logic(pass, name);</code>
+<code class="code">&nbsp;&nbsp;&nbsp;&nbsp;return 0;</code>
+<code class="code">}</code>
+<code class="code">void logic(char pass[], char name[])</code>
+<code class="code">{</code>
+<code class="code">&nbsp;&nbsp;&nbsp;&nbsp;char username[100], password[100];</code>
+<code class="code">&nbsp;&nbsp;&nbsp;&nbsp;printf("Enter your username: ");</code>
+<code class="code">&nbsp;&nbsp;&nbsp;&nbsp;scanf("%s", username);</code>
+<code class="code">&nbsp;&nbsp;&nbsp;&nbsp;printf("Enter your password: ");</code>
+<code class="code">&nbsp;&nbsp;&nbsp;&nbsp;scanf("%s", password);</code>
+<code class="code">&nbsp;&nbsp;&nbsp;&nbsp;if (strcmp(name, username) == 0 &amp;&amp; strcmp(pass, password) == 0)</code>
+<code class="code">&nbsp;&nbsp;&nbsp;&nbsp;{</code>
+<code class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;system("clear");</code>
+<code class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;program();</code>
+<code class="code">&nbsp;&nbsp;&nbsp;&nbsp;}</code>
+<code class="code">&nbsp;&nbsp;&nbsp;&nbsp;else</code>
+<code class="code">&nbsp;&nbsp;&nbsp;&nbsp;{</code>
+<code class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;system("clear");</code>
+<code class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fail_login();</code>
+<code class="code">&nbsp;&nbsp;&nbsp;&nbsp;}</code>
+<code class="code">}</code>
+<code class="code">int program()</code>
+<code class="code">{</code>
+<code class="code">&nbsp;&nbsp;&nbsp;&nbsp;login();</code>
+<code class="code">&nbsp;&nbsp;&nbsp;&nbsp;return 0;</code>
+<code class="code">}</code>
+<code class="code">void fail_login()</code>
+<code class="code">{</code>
+<code class="code">&nbsp;&nbsp;&nbsp;&nbsp;int choose;</code>
+<code class="code">&nbsp;&nbsp;&nbsp;&nbsp;printf("Choose an option below:\n");</code>
+<code class="code">&nbsp;&nbsp;&nbsp;&nbsp;printf("Press 1 to retry\n");</code>
+<code class="code">&nbsp;&nbsp;&nbsp;&nbsp;printf("Press 2 to exit program\n");</code>
+<code class="code">&nbsp;&nbsp;&nbsp;&nbsp;scanf("%d", &amp;choose);</code>
+<code class="code">&nbsp;&nbsp;&nbsp;&nbsp;switch (choose)</code>
+<code class="code">&nbsp;&nbsp;&nbsp;&nbsp;{</code>
+<code class="code">&nbsp;&nbsp;&nbsp;&nbsp;case 1:</code>
+<code class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;main();</code>
+<code class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;</code>
+<code class="code">&nbsp;&nbsp;&nbsp;&nbsp;case 2:</code>
+<code class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit(0);</code>
+<code class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;</code>
+<code class="code">&nbsp;&nbsp;&nbsp;&nbsp;default:</code>
+<code class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("Invalid option. Exiting program.\n");</code>
+<code class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;</code>
+<code class="code">&nbsp;&nbsp;&nbsp;&nbsp;}</code>
+<code class="code">}</code>
+</html>
+</code></pre>
+<br>
+    <h1>login.h</h1>
+    <pre><code>
+<code class="code">#ifndef LOGIN_H</code>
+<code class="code">#define LOGIN_H</code>
+<code class="code">void login();</code>
+<code class="code">#endif</code>
+</code></pre>
+<br>
+    <h1>login.c</h1>
+    <pre><code>
+<code class="code">#include &lt;stdio.h&gt;</code>
+<code class="code">void login()</code>
+<code class="code">{</code>
+<code class="code">&nbsp;&nbsp;&nbsp;&nbsp;printf("Login successful!\n");</code>
+<code class="code">}</code>    
+</code></pre>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+</body>
+
+</html>

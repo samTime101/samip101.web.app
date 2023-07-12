@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      overflow-x: auto;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .comment {
+      color: green;
+    }
+    .logo {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+        @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Clock icon */
+    #clock {
+      animation: rotate 0.8s linear infinite;
+    }
+    @media screen and (max-width: 600px) {
+      pre {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+    <h1><img id="clock" src="https://cdn.icon-icons.com/icons2/1993/PNG/512/clock_hour_minute_second_time_timer_watch_icon_123193.png" class="logo">Accessing web with selenium python</h1>
+    <p>
+        sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+        <br>
+        sudo dpkg -i google-chrome-stable_current_amd64.deb
+        <br>
+        sudo apt-get install -f
+        <br>
+        <b>check version</b>
+        <br>
+        google-chrome-stable --version
+    </p>
+  <pre><code>
+<code class="comment"># required for opening the links and responding (chrome is used here)</code>
+<code class="code">from selenium import webdriver</code>
+
+<code class="comment"># for adding the headless option because I am running this on Google Shell and I have not downloaded it locally</code>
+<code class="code">from selenium.webdriver.chrome.options import Options</code>
+
+<code class="comment"># for alerts as we are working with prompts and alerts</code>
+<code class="code">from selenium.webdriver.common.alert import Alert</code>
+
+<code class="comment"># for searching elements in HTML</code>
+<code class="code">from selenium.webdriver.common.by import By</code>
+
+<code class="comment"># Set up Chrome options</code>
+<code class="code">chrome_options = Options()</code>
+<code class="code">chrome_options.add_argument("--headless")  # Ensure GUI is not required</code>
+
+<code class="comment"># Set up the WebDriver</code>
+<code class="code">driver = webdriver.Chrome(options=chrome_options)</code>
+
+<code class="comment"># our target site for now let's work with mine</code>
+<code class="code">driver.get("https://samip101.web.app/project.html")</code>
+
+<code class="comment"># finding the button</code>
+<code class="code">driver.find_element(by=By.TAG_NAME, value="button").click()</code>
+
+<code class="comment"># alerts</code>
+<code class="code">prompt_alert = driver.switch_to.alert</code>
+
+<code class="comment"># printing the alert content</code>
+<code class="code">print(prompt_alert.text)</code>
+
+<code class="comment"># what we want to type on the prompt menu</code>
+<code class="code">prompt_alert.send_keys("test")</code>
+
+<code class="comment"># clicking the OK button of the prompt, simply confirming</code>
+<code class="code">prompt_alert.accept()</code>
+
+<code class="comment"># searching the body element</code>
+<code class="code">body_content = driver.find_element(by=By.TAG_NAME, value="body").text</code>
+
+<code class="comment"># displaying the body of HTML after the prompt entry</code>
+<code class="code">print(body_content)</code>
+
+<code class="comment"># quitting Chrome (headless)</code>
+<code class="code">driver.quit()</code></code></pre>
+
+  <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+</body>
+
+</html>
