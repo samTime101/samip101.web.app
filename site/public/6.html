@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Odd or Even? how did this program executed the correct output?</h1>
+    <pre>
+
+
+        int main()
+        {
+            int number, answer;
+            printf("Enter the number:");
+        
+            if (scanf("%d", &number) != 1)
+            {
+                printf("Not allowed\n");
+                return 0;
+            }
+            answer = number & 1;
+            if (answer == 0)
+            {
+                printf("Even\n");
+            }
+            else if (answer == 1)
+            {
+                printf("Odd\n");
+            }
+            else
+            {
+                printf("Not allowed\n");
+            }
+            
+            return 0;
+        }
+</pre> 
+</body>
+</html>
