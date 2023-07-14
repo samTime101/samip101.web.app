@@ -26,6 +26,10 @@
             text-decoration: none;
             cursor: pointer;
         }
+        #marq{
+            font-size: 15px;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
     </style>
 </head>
 
@@ -33,24 +37,17 @@
     <header>
         <h1>Projects and source codes</h1>
     </header>
-    <section id="modified-site">
-        <h1><a onclick="redirect()" style="color: rgb(255, 0, 0);">Selenium Demo site</a></h1>
-    </section>
-    <section id="source-site">
+    <marquee behavior="alternate" direction="right" scrollamount="10">
+        <b id="marq">Contribute to User Gate .<a href="https://samip101.web.app/7.html">Click Here For More Info</a></b>
+    </marquee>
+        <section id="source-site">
         <h1><a href="someProjectsandsource.html" style="color: rgb(25, 0, 255);">Check out some projects</a></h1>
-    </section>
-    <section id="extras">
-        <h1><a href="extras.html" style="color: rgb(25, 0, 255);">Extras</a></h1>
     </section>
     <section id="Homepage">
         <h1><a href="https://samiptime101.web.app" style="color: rgb(25, 0, 255);">Home</a></h1>
     </section> 
 </body>
 <script>
-function redirect()
-{
-    window.location.href="project.html"
-}
 </script>
 
 </html>
